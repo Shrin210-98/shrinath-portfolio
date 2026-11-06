@@ -1,0 +1,9 @@
+node_modules
+dist
+*.local
+.DS_Store
+*.log
+.wrangler
+.vscode/*
+!.vscode/extensions.json
+dist-ssr

@@ -1,0 +1,320 @@
+/**
+ * Single source of truth for every word on the site.
+ * Components only render what's in here — edit this file to update content.
+ *
+ * Search for "TODO" to find content that still needs filling in.
+ */
+
+// ─── Types ──────────────────────────────────────────────────────────────────
+
+export interface Link {
+  label: string;
+  href: string;
+}
+
+export interface Profile {
+  name: string;
+  /** Short monogram shown in the header. */
+  initials: string;
+  title: string;
+  /** One-line pitch shown under the title in the hero. */
+  pitch: string;
+  location: string;
+  email: string;
+  github: string;
+  linkedin: string;
+  /** Path (under /public) to the downloadable résumé PDF. */
+  resumeUrl: string;
+  /** Source repo for this site, linked from the footer. */
+  sourceUrl: string;
+}
+
+export interface SkillGroup {
+  label: string;
+  items: string[];
+}
+
+export interface ClientProject {
+  name: string;
+  url: string;
+  description: string;
+}
+
+export interface Job {
+  role: string;
+  company: string;
+  location: string;
+  /** Human-readable, e.g. "Jun 2025". */
+  start: string;
+  /** Human-readable, or "Present". */
+  end: string;
+  highlights: string[];
+  clientProjects?: ClientProject[];
+}
+
+export interface Project {
+  name: string;
+  tagline: string;
+  /** Live product URL. Omit if there isn't a public one yet. */
+  url?: string;
+  version?: string;
+  featured?: boolean;
+  points: string[];
+  stack: string[];
+  /** Related write-ups (e.g. blog posts). */
+  writeUps?: Link[];
+  /** Public source / demo repository. */
+  repo?: Link;
+  /** Small label like "Freelance client work". */
+  note?: string;
+}
+
+export interface Post {
+  title: string;
+  url: string;
+}
+
+export interface Education {
+  degree: string;
+  institution: string;
+  start: string;
+  end: string;
+  grade: string;
+}
+
+export interface Resume {
+  profile: Profile;
+  summary: string;
+  skills: SkillGroup[];
+  experience: Job[];
+  projects: Project[];
+  writing: Post[];
+  education: Education[];
+  /** Short line shown in the Contact section. */
+  contactBlurb: string;
+}
+
+// ─── Content ────────────────────────────────────────────────────────────────
+
+export const resume: Resume = {
+  profile: {
+    name: "Shrinath Poojary",
+    initials: "SP",
+    title: "Full-Stack Developer — React · Go · Flutter",
+    // Condensed from the summary below — reword freely.
+    pitch:
+      "I build business internal tools that streamline complex workflows — React frontends, Go + PostgreSQL backends and Flutter mobile apps.",
+    location: "Mumbai, India",
+    email: "shrin210@zohomail.in",
+    github: "https://github.com/Shrin210-98",
+    linkedin: "https://www.linkedin.com/in/shrin210",
+    // TODO: add the résumé PDF at public/Shrinath_Poojary_Resume.pdf
+    // (the build prints a warning until it exists).
+    resumeUrl: "/Shrinath_Poojary_Resume.pdf",
+    // Assumes the repo is created under the GitHub account above — update if not.
+    sourceUrl: "https://github.com/Shrin210-98/shrinath-portfolio",
+  },
+
+  summary:
+    "5+ years architecting and delivering end-to-end React.js frontends across Health/Insurance, Automobile, Logistics (Shipping/Trucking) and Education, specialising in business internal tools that streamline complex workflows. Now building Go + PostgreSQL backends and Flutter mobile apps.",
+
+  skills: [
+    {
+      label: "Languages",
+      items: ["JavaScript", "TypeScript", "Go", "Dart", "Python", "SQL", "HTML5", "CSS3"],
+    },
+    {
+      label: "Frontend & Mobile",
+      items: [
+        "React",
+        "Next.js",
+        "Flutter",
+        "TanStack (Router, Query, Table)",
+        "Redux",
+        "React Hook Form",
+        "Zod",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Radix UI",
+      ],
+    },
+    {
+      label: "Backend & APIs",
+      items: ["Go (net/http, pgx, sqlc)", "Node.js", "REST", "GraphQL", "WebSocket", "SSE", "JWT"],
+    },
+    {
+      label: "Databases & Cloud",
+      items: [
+        "PostgreSQL",
+        "Firebase",
+        "MongoDB",
+        "Google Cloud Run",
+        "Cloudflare Workers",
+        "AWS (EC2, RDS, S3)",
+        "Vercel",
+        "Docker",
+        "Nginx",
+        "GitHub Actions",
+      ],
+    },
+    {
+      label: "Integrations",
+      items: ["Shopify Storefront API", "Razorpay", "Firebase Cloud Messaging", "Google Maps"],
+    },
+    {
+      label: "Tools",
+      items: ["Git", "CI/CD", "Jest", "Vitest", "Postman", "Claude Code", "Agile/Scrum", "Linux"],
+    },
+  ],
+
+  experience: [
+    {
+      role: "Freelance Mobile & Full-Stack Developer",
+      company: "Self-employed",
+      location: "Mumbai (Remote)",
+      start: "Jun 2025",
+      end: "Present",
+      highlights: [
+        "Built a cross-platform e-commerce app in Flutter (Dart) on Shopify's Storefront GraphQL API: catalogue, collections, cart and checkout.",
+        "Integrated the Razorpay payment gateway for in-app payments.",
+        "Upskilled in Go, PostgreSQL and cloud deployment on AWS and GCP, using GenAI tools (Claude Code, Google Gemini) to build CCMS Suite.",
+      ],
+    },
+    {
+      role: "Senior Frontend Developer",
+      company: "Twelve Springs Limited",
+      location: "London, UK",
+      start: "Sep 2021",
+      end: "May 2025",
+      highlights: [
+        "Built responsive, cross-browser React.js web apps for cloud environments.",
+        "Integrated Java REST APIs, WebSockets and Firebase Cloud Messaging for real-time messaging, push notifications and synced data.",
+        "Built reusable components and CI/CD pipelines with automation scripts, cutting development time by 30%.",
+        "Applied memoization and code splitting; managed complex state with React Context.",
+        "Mentored junior developers in React and modern JavaScript.",
+      ],
+      clientProjects: [
+        {
+          name: "Organizational Growth Platform",
+          url: "https://www.myopen360.com",
+          description: "SaaS with role-based access, real-time video calls and a management hierarchy.",
+        },
+        {
+          name: "Auto Parts Communication Platform",
+          url: "https://www.liveyards.com",
+          description:
+            "Real-time chat with image sharing, WebSocket P2P connectivity, bilingual UI (EN/ES), FCM push notifications.",
+        },
+        {
+          name: "Educators Data Management Platform",
+          url: "https://www.empoweringk12.com",
+          description: "Led 2 developers; turned 20 Figma pages into a demo-ready React portal in 11 days.",
+        },
+      ],
+    },
+    {
+      role: "Frontend Developer",
+      company: "Technoark Solutions Pvt Ltd",
+      location: "Mumbai",
+      start: "Jun 2020",
+      end: "Sep 2021",
+      highlights: [
+        "Built React.js apps with Material UI and Bootstrap.",
+        "Integrated Java REST APIs; Google Maps with custom filters for live tracking.",
+        "Built multi-step dynamic forms on MongoDB with drag-and-drop components.",
+      ],
+      clientProjects: [
+        {
+          name: "Insurance Verification System",
+          url: "https://verifixed.io",
+          description: "Dynamic dental insurance forms, filtered reports, PDF export, activity logging.",
+        },
+        {
+          name: "Trucking Management Platform",
+          url: "https://www.wmtrucking.net",
+          description: "Real-time truck tracking on Google Maps and an admin portal with analytics.",
+        },
+      ],
+    },
+  ],
+
+  projects: [
+    {
+      name: "CCMS Suite",
+      tagline: "Multi-tenant SaaS for canteen and catering operators.",
+      url: "https://app.ccms-suite.com",
+      version: "v0.3.0",
+      featured: true,
+      points: [
+        "Multi-tenancy: many customers in one shared PostgreSQL database, each kept isolated.",
+        "Roles & permissions: nested permission tree with per-user overrides; JWT carries the tenant.",
+        "Staff management & live chat over WebSockets.",
+        "No ORM: plain SQL with sqlc-generated Go on pgx; invalid columns fail at code generation.",
+        "End-to-end type safety from Postgres CHECK constraints through Go and JSON to TypeScript.",
+      ],
+      stack: [
+        "Go",
+        "PostgreSQL 18",
+        "pgx",
+        "sqlc",
+        "Atlas",
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "Tailwind v4",
+        "TanStack",
+        "Docker",
+        "GitHub Actions",
+        "Google Cloud Run",
+        "Cloudflare Workers",
+      ],
+      writeUps: [
+        {
+          label: "From college project to Go backend",
+          href: "https://www.ccms-suite.com/blog/college-project-to-go-backend",
+        },
+        {
+          label: "CI, migrations & no ORM",
+          href: "https://www.ccms-suite.com/blog/ci-migrations-sqlc-no-orm",
+        },
+      ],
+      repo: {
+        label: "Public demo (hand-written Go backend)",
+        href: "https://github.com/Shrin210-98/CanteenCrowd-go-api",
+      },
+    },
+    {
+      name: "Shopify e-commerce app",
+      tagline:
+        "Cross-platform Flutter app on Shopify's Storefront GraphQL API: catalogue, collections, cart and checkout, with Razorpay in-app payments.",
+      note: "Freelance client work",
+      // TODO: add a public link (store listing / case study) if one becomes available:
+      // url: "https://…",
+      points: [],
+      stack: ["Flutter", "Dart", "Shopify Storefront GraphQL API", "Razorpay"],
+    },
+  ],
+
+  writing: [
+    {
+      title: "From college project to Go backend",
+      url: "https://www.ccms-suite.com/blog/college-project-to-go-backend",
+    },
+    {
+      title: "CI, migrations & no ORM",
+      url: "https://www.ccms-suite.com/blog/ci-migrations-sqlc-no-orm",
+    },
+  ],
+
+  education: [
+    {
+      degree: "BSc IT",
+      institution: "Jai Hind College (Mumbai University)",
+      start: "2016",
+      end: "2019",
+      grade: "CGPA 9.17",
+    },
+  ],
+
+  contactBlurb: "Get in touch by email, or find me on LinkedIn and GitHub.",
+};

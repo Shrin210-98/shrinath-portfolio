@@ -1,0 +1,51 @@
+<!doctype html>
+<!--
+  Source for public/og-image.png (1200×630). Regenerate after `npm install` with:
+    chromium --headless --disable-gpu --hide-scrollbars --window-size=1200,630 \
+      --screenshot=public/og-image.png scripts/og-image.html
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("../node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+        font-weight: 100 800;
+      }
+      * { margin: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 630px; overflow: hidden; }
+      body {
+        background: #1c1917;
+        color: #e7e5e4;
+        font-family: "JetBrains Mono", monospace;
+        padding: 80px 88px;
+        display: flex;
+        flex-direction: column;
+        border-top: 10px solid #fbbf24;
+      }
+      .prompt { font-size: 30px; color: #a8a29e; }
+      .prompt b { color: #fbbf24; font-weight: 500; }
+      h1 { margin-top: 36px; font-size: 92px; font-weight: 700; color: #fbbf24; letter-spacing: -2px; line-height: 1.05; }
+      .title { margin-top: 28px; font-size: 38px; font-weight: 500; display: flex; align-items: center; }
+      .cursor { display: inline-block; width: 22px; height: 44px; background: #fbbf24; margin-left: 12px; }
+      .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; font-size: 28px; color: #a8a29e; }
+      .mono { width: 96px; height: 96px; }
+    </style>
+  </head>
+  <body>
+    <p class="prompt"><b>~</b> $ whoami</p>
+    <h1>Shrinath Poojary</h1>
+    <p class="title">Full-Stack Developer — React · Go · Flutter<span class="cursor"></span></p>
+    <div class="foot">
+      <span>shrinath.pages.dev · Mumbai, India</span>
+      <svg class="mono" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="6" fill="#292524" />
+        <g fill="none" stroke="#fbbf24" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 9.5H8.5a3.25 3.25 0 0 0 0 6.5h2a3.25 3.25 0 0 1 0 6.5H5" />
+          <path d="M19 22.5v-13h4.5a3.5 3.5 0 0 1 0 7H19" />
+        </g>
+      </svg>
+    </div>
+  </body>
+</html>
