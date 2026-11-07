@@ -45,7 +45,7 @@ export interface Profile {
   email: string;
   github: string;
   linkedin: string;
-  /** Path (under /public) to the downloadable résumé PDF. */
+  /** Résumé link: an external page (opens in a new tab) or a path under /public (downloaded). */
   resumeUrl: string;
   /** Source repo for this site, linked from the footer. */
   sourceUrl: string;
@@ -144,9 +144,7 @@ export const resume: Resume = {
     email: "shrin210@zohomail.in",
     github: "https://github.com/Shrin210-98",
     linkedin: "https://www.linkedin.com/in/shrin210",
-    // TODO: add the résumé PDF at public/Shrinath_Poojary_Resume.pdf
-    // (the build prints a warning until it exists).
-    resumeUrl: "/Shrinath_Poojary_Resume.pdf",
+    resumeUrl: "https://shrin210-98.github.io/resume/",
     // Assumes the repo is created under the GitHub account above — update if not.
     sourceUrl: "https://github.com/Shrin210-98/shrinath-portfolio",
   },

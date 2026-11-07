@@ -56,7 +56,7 @@ function Avatar({ className }: { className?: string }) {
 export function Hero() {
   return (
     <section aria-labelledby="hero-heading" className="pt-14 pb-6 sm:pt-24 sm:pb-10">
-      <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
         <div className="order-2 min-w-0 sm:order-1">
           {/* Name, title and pitch are visually hidden; screen readers and search engines still get them. */}
           <div className="sr-only">
@@ -114,10 +114,18 @@ export function Hero() {
 
       <div className="mt-8 flex flex-wrap items-center gap-3">
         <Button asChild size="lg">
-          <a href={profile.resumeUrl} download>
-            <Download aria-hidden="true" />
-            Download résumé
-          </a>
+          {/* External résumé page opens in a new tab; a local /public file is downloaded. */}
+          {/^https?:\/\//.test(profile.resumeUrl) ? (
+            <ExternalLink href={profile.resumeUrl}>
+              <Download aria-hidden="true" />
+              Download résumé
+            </ExternalLink>
+          ) : (
+            <a href={profile.resumeUrl} download>
+              <Download aria-hidden="true" />
+              Download résumé
+            </a>
+          )}
         </Button>
         <Button asChild size="lg" variant="outline">
           <a href="#contact">

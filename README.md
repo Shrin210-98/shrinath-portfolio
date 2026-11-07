@@ -40,7 +40,7 @@ Other things you may want to change:
 
 | What | Where |
 | --- | --- |
-| Résumé PDF | add `public/Shrinath_Poojary_Resume.pdf` (the build warns until it exists) |
+| Résumé link | `profile.resumeUrl`: an external page opens in a new tab; a path like `/resume.pdf` (file in `public/`) downloads, and the build warns if that file is missing |
 | Colours / theme tokens | `:root` and `.dark` in `src/index.css` |
 | Page title, description, Open Graph tags | `index.html` |
 | Avatar | `public/avatar-{224,352,528}.webp` (resized from the original illustration); alt text etc. in `profile.avatar` |

@@ -45,6 +45,7 @@ function llmsTxt(): Plugin {
         `- [Email](mailto:${profile.email})`,
         `- [GitHub](${profile.github})`,
         `- [LinkedIn](${profile.linkedin})`,
+        `- [Résumé](${new URL(profile.resumeUrl, "https://shrinath.pages.dev").href})`,
         "",
         "## Projects",
         "",

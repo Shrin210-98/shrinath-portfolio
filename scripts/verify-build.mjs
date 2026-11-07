@@ -2,7 +2,7 @@
 //  1. Every inline <script> in dist/index.html has its sha256 hash in the CSP in dist/_headers.
 //     Fails the build otherwise, printing the hash to paste into public/_headers.
 //  2. The prerendered HTML has no inline style="" attributes (CSP style-src 'self' would block them).
-//  3. Warns if the résumé PDF hasn't been added to public/ yet.
+//  3. If resumeUrl in src/data/resume.ts is a local path, warns when that file isn't in dist/.
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 
@@ -26,10 +26,11 @@ if (inlineStyles.length) {
   console.error(`\n✖ CSP: ${inlineStyles.length} inline style attribute(s) in dist/index.html, e.g. ${inlineStyles[0].slice(0, 120)}`);
 }
 
-if (!existsSync(new URL("Shrinath_Poojary_Resume.pdf", dist))) {
-  console.warn(
-    "\n⚠ public/Shrinath_Poojary_Resume.pdf is missing — the \"Download résumé\" button will not work until you add it.",
-  );
+const resumeUrl = readFileSync(new URL("../src/data/resume.ts", import.meta.url), "utf8").match(
+  /resumeUrl:\s*"([^"]+)"/,
+)?.[1];
+if (resumeUrl?.startsWith("/") && !existsSync(new URL(resumeUrl.slice(1), dist))) {
+  console.warn(`\n⚠ public${resumeUrl} is missing — the "Download résumé" button will not work until you add it.`);
 }
 
 if (failed) process.exit(1);

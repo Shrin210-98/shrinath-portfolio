@@ -5,7 +5,6 @@
 export function AuroraBackground() {
   return (
     <div aria-hidden="true" className="aurora">
-      <div className="aurora-blob aurora-blob-1" />
       <div className="aurora-blob aurora-blob-2" />
       <div className="aurora-blob aurora-blob-3" />
       <div className="aurora-blob aurora-blob-4" />
