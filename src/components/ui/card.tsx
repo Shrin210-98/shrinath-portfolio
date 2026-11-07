@@ -2,12 +2,12 @@ import type { ComponentProps } from "react";
 
 import { cn } from "@/lib/utils";
 
-// Cards sit on --bg (not --surface) so --muted text keeps AA contrast in light mode.
+// Cards sit on --bg; --surface is used for badges and hover states.
 function Card({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
       data-slot="card"
-      className={cn("flex flex-col gap-4 rounded-lg border border-border bg-bg p-5 sm:p-6", className)}
+      className={cn("flex flex-col gap-4 glass rounded-lg border p-5 sm:p-6", className)}
       {...props}
     />
   );

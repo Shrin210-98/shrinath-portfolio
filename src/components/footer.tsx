@@ -10,7 +10,7 @@ export function Footer() {
       <div className="flex flex-col gap-2 pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         {/* Prerendered at build time; the year may update on hydration. */}
         <p suppressHydrationWarning>
-          © {year} {resume.profile.name}
+          © {year} {resume.profile.name} <span className="text-muted">· {resume.profile.handle}</span>
         </p>
         <p>
           Built with React, Tailwind &amp; Cloudflare Pages ·{" "}

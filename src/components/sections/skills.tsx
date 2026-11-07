@@ -4,7 +4,7 @@ import { resume } from "@/data/resume";
 
 export function Skills() {
   return (
-    <Section id="skills" title="Skills">
+    <Section id="skills" title="Skills" collapsible>
       <dl className="space-y-6">
         {resume.skills.map((group) => (
           <div key={group.label} className="grid gap-3 sm:grid-cols-[11rem_1fr] sm:gap-6">

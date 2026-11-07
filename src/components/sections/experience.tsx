@@ -14,7 +14,7 @@ function hostname(url: string) {
 
 export function Experience() {
   return (
-    <Section id="experience" title="Experience">
+    <Section id="experience" title="Experience" collapsible>
       <ol className="relative space-y-12 border-l border-border pl-6 sm:pl-8">
         {resume.experience.map((job) => (
           <li key={job.company + job.start} className="relative">

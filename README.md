@@ -43,13 +43,14 @@ Other things you may want to change:
 | Résumé PDF | add `public/Shrinath_Poojary_Resume.pdf` (the build warns until it exists) |
 | Colours / theme tokens | `:root` and `.dark` in `src/index.css` |
 | Page title, description, Open Graph tags | `index.html` |
+| Avatar | `public/avatar-{224,352,528}.webp` (resized from the original illustration); alt text etc. in `profile.avatar` |
 | Favicon | `public/favicon.svg` |
 | Social preview image | `public/og-image.png`, generated from `scripts/og-image.html` (command inside that file) |
 | Security headers / caching | `public/_headers` |
 
 ### Theme and CSP
 
-The theme follows `prefers-color-scheme` until the visitor uses the header toggle. Their choice is
+The theme follows `prefers-color-scheme` until the visitor uses the sun/moon switch beside the avatar. Their choice is
 saved in `localStorage`. A tiny inline script in `index.html` sets `class="dark"` on `<html>` before
 first paint, so the wrong theme never flashes.
 

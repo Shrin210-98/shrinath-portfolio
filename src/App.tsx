@@ -1,5 +1,7 @@
+import { AuroraBackground } from "@/components/aurora-background";
 import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
+// Header (sticky nav + theme toggle) is hidden for now; the theme toggle lives beside the avatar.
+// To restore it: import { Header } from "@/components/header"; and render <Header /> below.
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
 import { Experience } from "@/components/sections/experience";
@@ -12,6 +14,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 export default function App() {
   return (
     <TooltipProvider>
+      <AuroraBackground />
       <div id="top">
         <a
           href="#main"
@@ -19,7 +22,7 @@ export default function App() {
         >
           Skip to content
         </a>
-        <Header />
+        {/* <Header /> */}
         <main id="main" tabIndex={-1} className="mx-auto max-w-4xl px-4 outline-none sm:px-6">
           <Hero />
           <About />

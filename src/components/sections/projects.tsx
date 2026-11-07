@@ -1,5 +1,6 @@
 import { ArrowUpRight, FileText, Star } from "lucide-react";
 
+import { Bracketed } from "@/components/bracketed";
 import { GithubIcon } from "@/components/brand-icons";
 import { ExternalLink } from "@/components/external-link";
 import { Section } from "@/components/section";
@@ -14,17 +15,29 @@ const footerButton = "h-auto min-h-8 max-w-full shrink py-1.5 text-left whitespa
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className={cn(project.featured && "border-accent/50")}>
+    <Card
+      className={cn(
+        project.featured &&
+          // Hard offset "stacked" shadow, nudged further on hover.
+          "border-accent/60 shadow-[6px_6px_0_0_var(--accent)] transition-[translate,box-shadow] duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0_0_var(--accent)]",
+      )}
+    >
       <CardHeader>
         <div className="flex flex-wrap items-center gap-2">
           {project.featured ? (
             <Badge variant="accent">
-              <Star aria-hidden="true" />
-              Featured
+              <Bracketed>
+                <Star aria-hidden="true" className="size-3" />
+                Featured
+              </Bracketed>
             </Badge>
           ) : null}
           {project.version ? <Badge variant="outline">{project.version}</Badge> : null}
-          {project.note ? <Badge variant="outline">{project.note}</Badge> : null}
+          {project.note ? (
+            <Badge variant="outline">
+              <Bracketed>{project.note}</Bracketed>
+            </Badge>
+          ) : null}
         </div>
         <CardTitle className={cn("mt-2", project.featured && "text-lg sm:text-xl")}>
           {project.url ? (

@@ -12,10 +12,32 @@ export interface Link {
   href: string;
 }
 
+export interface Avatar {
+  /** Fallback image (under /public). */
+  src: string;
+  /** Responsive candidates, e.g. "/avatar-224.webp 224w, …". */
+  srcSet: string;
+  /** Intrinsic size of `src`, used to reserve space (no layout shift). */
+  width: number;
+  height: number;
+  alt: string;
+}
+
+export interface PoemLine {
+  text: string;
+  /** Optional link rendered right after `text`. */
+  link?: Link;
+}
+
 export interface Profile {
   name: string;
+  /** Online handle used across GitHub, email and LinkedIn. */
+  handle: string;
   /** Short monogram shown in the header. */
   initials: string;
+  avatar: Avatar;
+  /** The hero poem, printed as the output of `$ whoami`. */
+  whoami: PoemLine[];
   title: string;
   /** One-line pitch shown under the title in the hero. */
   pitch: string;
@@ -99,9 +121,23 @@ export interface Resume {
 export const resume: Resume = {
   profile: {
     name: "Shrinath Poojary",
+    handle: "Shrin210",
     initials: "SP",
+    avatar: {
+      src: "/avatar-352.webp",
+      srcSet: "/avatar-224.webp 224w, /avatar-352.webp 352w, /avatar-528.webp 528w",
+      width: 352,
+      height: 528,
+      alt: "Illustrated portrait of Shrinath in a checked shirt, with palm trees and an ornate golden gateway behind",
+    },
+    whoami: [
+      { text: "Hey 👋 I'm Shrinath here," },
+      { text: "Ideas to apps, I engineer." },
+      { text: "Code I craft, explore with cheer," },
+      { text: "My GitHub trails are waiting ", link: { label: "Here", href: "https://github.com/Shrin210-98" } },
+    ],
     title: "Full-Stack Developer — React · Go · Flutter",
-    // Condensed from the summary below — reword freely.
+    // Condensed from the summary below — reword freely. (Currently not shown on the page.)
     pitch:
       "I build business internal tools that streamline complex workflows — React frontends, Go + PostgreSQL backends and Flutter mobile apps.",
     location: "Mumbai, India",

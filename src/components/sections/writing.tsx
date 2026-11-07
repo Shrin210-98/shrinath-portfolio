@@ -21,7 +21,7 @@ export function Writing() {
           <li key={post.url}>
             <ExternalLink
               href={post.url}
-              className="group flex h-full flex-col justify-between gap-6 rounded-lg border border-border bg-bg p-5 transition-colors hover:border-accent"
+              className="group flex h-full flex-col justify-between gap-6 glass rounded-lg border p-5 transition-colors hover:border-accent"
             >
               <span className="font-bold text-text group-hover:text-accent">{post.title}</span>
               <span className="flex items-center justify-between gap-2 text-sm text-muted">

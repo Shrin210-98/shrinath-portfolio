@@ -2,6 +2,7 @@ import { Mail } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
+import { CopyButton } from "@/components/copy-button";
 import { ExternalLink } from "@/components/external-link";
 import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
@@ -37,9 +38,12 @@ export function Contact() {
 
       <ul className="mt-8 space-y-4">
         <Row icon={<Mail className="size-4" aria-hidden="true" />} label="Email">
-          <a href={`mailto:${profile.email}`} className={linkClass}>
-            {profile.email}
-          </a>
+          <span className="inline-flex flex-wrap items-center gap-x-1">
+            <a href={`mailto:${profile.email}`} className={linkClass}>
+              {profile.email}
+            </a>
+            <CopyButton value={profile.email} label="Copy email address" />
+          </span>
         </Row>
         <Row icon={<LinkedinIcon className="size-4" />} label="LinkedIn">
           <ExternalLink href={profile.linkedin} className={linkClass}>
