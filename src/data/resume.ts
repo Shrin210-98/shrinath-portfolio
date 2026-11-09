@@ -304,12 +304,16 @@ export const resume: Resume = {
       ],
       writeUps: [
         {
-          label: "From college project to Go backend",
-          href: "https://www.ccms-suite.com/blog/college-project-to-go-backend",
+          label: "Learning Go before letting AI write it",
+          href: "https://www.ccms-suite.com/blog/learning-go-before-letting-ai-write-it",
         },
         {
-          label: "CI, migrations & no ORM",
+          label: "No ORM & a CI that stops drift",
           href: "https://www.ccms-suite.com/blog/ci-migrations-sqlc-no-orm",
+        },
+        {
+          label: "Stable full-stack code with Claude Code",
+          href: "https://www.ccms-suite.com/blog/claude-code-stable-full-stack",
         },
       ],
       repo: {
@@ -317,26 +321,20 @@ export const resume: Resume = {
         href: "https://github.com/Shrin210-98/CanteenCrowd-go-api",
       },
     },
-    {
-      name: "Shopify e-commerce app",
-      tagline:
-        "Cross-platform Flutter app on Shopify's Storefront GraphQL API: catalogue, collections, cart and checkout, with Razorpay in-app payments.",
-      note: "Freelance client work",
-      // TODO: add a public link (store listing / case study) if one becomes available:
-      // url: "https://…",
-      points: [],
-      stack: ["Flutter", "Dart", "Shopify Storefront GraphQL API", "Razorpay"],
-    },
   ],
 
   writing: [
     {
-      title: "From college project to Go backend",
-      url: "https://www.ccms-suite.com/blog/college-project-to-go-backend",
+      title: "Learning Go, Postgres and System Design, before letting AI write it",
+      url: "https://www.ccms-suite.com/blog/learning-go-before-letting-ai-write-it",
     },
     {
-      title: "CI, migrations & no ORM",
+      title: "No ORM, and a CI that won't let the database drift",
       url: "https://www.ccms-suite.com/blog/ci-migrations-sqlc-no-orm",
+    },
+    {
+      title: "Stable full-stack code with Claude Code: let the stack catch the mistakes",
+      url: "https://www.ccms-suite.com/blog/claude-code-stable-full-stack",
     },
   ],
 
